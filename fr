@@ -1,0 +1,44 @@
+repeat wait() until workspace.Bots:FindFirstChild("1")
+local humanoidRootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+humanoidRootPart.Anchored=false
+	local stepfatherString = "489.338806, 289.550598, 835.458801, 0.99998033, -0.00048589558, 0.00626474945, 0, 0.997005761, 0.0773280114, -0.00628356496, -0.0773264915, 0.996986032"
+
+-- Split the string into individual values
+local values = {}
+for value in stepfatherString:gmatch("([^,]+)") do
+    table.insert(values, tonumber(value))
+end
+
+-- Construct a CFrame object using the values
+local stepfatherCFrame = CFrame.new(unpack(values))
+    local RenderStepped = game:GetService("RunService").Heartbeat
+
+local function quickWait(waitTime)
+	local startTime = os.clock()
+
+	local currentTime = os.clock()
+	while os.clock() - startTime <= waitTime do
+		if os.clock() - currentTime >= 0.01 then
+			RenderStepped:Wait()
+			currentTime = os.clock()
+		end
+	end
+	return os.clock() - startTime
+end
+	repeat wait() until game.Players.LocalPlayer.Character ~= nil
+	workspace.CurrentCamera.CFrame=stepfatherCFrame
+if game.workspace:FindFirstChild("Part") == nil then
+repeat wait() until game.workspace:FindFirstChild("Part")
+humanoidRootPart.CFrame = CFrame.new(475.74176, 302.282257, 1160.84253, 0.98048085, 8.09058509e-09, -0.196614549, -8.3076781e-09, 1, -2.79401474e-10, 0.196614549, 1.90735827e-09, 0.98048085)
+wait(0.1)
+humanoidRootPart.Anchored=true
+repeat 
+	workspace.CurrentCamera.CFrame=stepfatherCFrame
+    if game.workspace:FindFirstChild("Part") ~= nil then
+    if game.workspace:FindFirstChild("Part").Highlight.FillColor == Color3.fromRGB(255, 0, 0) then
+       mouse1click()
+    end
+    end
+   RenderStepped:Wait()
+   until workspace.Bots:FindFirstChild("1") == nil
+end
